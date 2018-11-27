@@ -3,7 +3,6 @@ package com.qa.account.util.generators;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
 import com.qa.account.util.constants.Constants;
 
 public abstract class AbstractAccountGen {
@@ -12,26 +11,27 @@ public abstract class AbstractAccountGen {
 
     public abstract String getGeneratedNumber();
 
-    protected String generateAccountNumber(int accountSize){
-        String num = constructString(accountSize);
-        while(accountNumList.contains(num)){
-            num = constructString(accountSize);
+    protected String generateAccountNumber(int accountLength){
+        String generatedAccountNumber = constructString(accountLength);
+        while(accountNumList.contains(generatedAccountNumber)){
+            generatedAccountNumber = constructString(accountLength);
         }
-        accountNumList.add(num);
-        return num;
+        accountNumList.add(generatedAccountNumber);
+        return generatedAccountNumber;
     }
 
-    private String constructString(int size){
-        StringBuilder accNum= new StringBuilder();
-        int i = new Random().nextInt(3);
-        if(i==0){
-            accNum.append(Constants.ACCOUNT_TYPE_A + ":");
-        }else if(i==2){
-            accNum.append(Constants.ACCOUNT_TYPE_B + ":");
+    private String constructString(int length){
+        StringBuilder accNum = new StringBuilder();
+        int typeSelector = new Random().nextInt(3);
+
+        if(typeSelector==0){
+            accNum.append(Constants.ACCOUNT_TYPE_A);
+        }else if(typeSelector==2){
+            accNum.append(Constants.ACCOUNT_TYPE_B);
         }else{
-            accNum.append(Constants.ACCOUNT_TYPE_C + ":");
+            accNum.append(Constants.ACCOUNT_TYPE_C);
         }
-        for (int j = 0; j < size; j++) {
+        for (int j = 0; j < length; j++) {
             accNum.append(generateDigit());
         }
         return accNum.toString();
