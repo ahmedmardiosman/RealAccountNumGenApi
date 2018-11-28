@@ -13,5 +13,6 @@ public class Constants {
     public static final String URL_BASE = "/accounts";
     public static final String URL_CREATE_ACCOUNT = "/createAccountNumber";
 
+    public static final String CORS = "*";
 
 }

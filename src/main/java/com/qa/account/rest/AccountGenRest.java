@@ -16,7 +16,7 @@ public class AccountGenRest {
 	@Autowired
 	private AccountService service;
 
-	@CrossOrigin(origins = "*")
+	@CrossOrigin(origins = Constants.CORS)
 	@GetMapping(Constants.URL_CREATE_ACCOUNT)
 	public String createAccountNumber() {
 		return service.createAccountNumber();
