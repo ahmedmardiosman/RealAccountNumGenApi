@@ -3,7 +3,9 @@ package com.qa.account.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.qa.account.util.generators.AbstractAccountGen;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import com.qa.account.persistence.domain.AccountNum;
@@ -16,6 +18,8 @@ public class AccountServiceImpl implements AccountService {
 
 	@Autowired
 	private AccountRepository repo;
+
+	private AbstractAccountGen generator;
 
 	public String createAccountNumber() {
 		List<String> allAccountNumbers = getAccountNumArray();
@@ -33,4 +37,21 @@ public class AccountServiceImpl implements AccountService {
 		List<AccountNum> objectList = repo.findAll();
 		return objectList.stream().map(AccountNum::getAccountNum).collect(Collectors.toList());
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
