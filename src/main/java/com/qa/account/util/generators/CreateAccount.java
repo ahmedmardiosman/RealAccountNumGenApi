@@ -1,14 +1,19 @@
 package com.qa.account.util.generators;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class CreateAccount {
 
+    @Autowired
     private AbstractAccountGen generator;
 
     public CreateAccount(AbstractAccountGen generator){
         this.generator = generator;
     }
 
-    public String createAccount(){
+    public CreateAccount(){ }
+
+    public String createAccountNumber(){
         return generator.getGeneratedNumber();
     }
     
@@ -16,4 +21,7 @@ public class CreateAccount {
     	return this.generator;
     }
 
+    public void setGenerator(AbstractAccountGen generator) {
+        this.generator = generator;
+    }
 }

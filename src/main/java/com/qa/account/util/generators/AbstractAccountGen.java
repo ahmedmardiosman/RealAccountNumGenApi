@@ -22,15 +22,20 @@ public abstract class AbstractAccountGen {
 
     private String constructString(int length){
         StringBuilder accNum = new StringBuilder();
-        int typeSelector = new Random().nextInt(3);
+        int typeSelector = new Random().nextInt(Constants.TYPES_OF_ACCOUNTS);
 
-        if(typeSelector==0){
-            accNum.append(Constants.ACCOUNT_TYPE_A);
-        }else if(typeSelector==2){
-            accNum.append(Constants.ACCOUNT_TYPE_B);
-        }else{
-            accNum.append(Constants.ACCOUNT_TYPE_C);
+        switch(typeSelector){
+            case 0:
+                accNum.append(Constants.ACCOUNT_TYPE_A);
+                break;
+            case 1:
+                accNum.append(Constants.ACCOUNT_TYPE_B);
+                break;
+            case 2:
+                accNum.append(Constants.ACCOUNT_TYPE_C);
+                break;
         }
+
         for (int j = 0; j < length; j++) {
             accNum.append(generateDigit());
         }

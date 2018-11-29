@@ -8,9 +8,7 @@ public class AccountNum {
 	@Id
 	private String accountNum;
 	
-	public AccountNum() {
-		
-	}
+	public AccountNum() {}
 	
 	public AccountNum(String accountNum) {
 		this.accountNum = accountNum;
