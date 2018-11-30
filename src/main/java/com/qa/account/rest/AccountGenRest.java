@@ -1,22 +1,19 @@
 package com.qa.account.rest;
 
-import com.qa.account.util.constants.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.qa.account.service.AccountService;
 
-@RequestMapping(Constants.URL_BASE)
+@RequestMapping("${path.base}")
 @RestController
 public class AccountGenRest {
 
 	@Autowired
 	private AccountService service;
 
-	@CrossOrigin(origins = Constants.CORS)
-	@GetMapping(Constants.URL_CREATE_ACCOUNT)
+	@GetMapping("${path.createAccountNumber}")
 	public String createAccountNumber() {
 		return service.createAccountNumber();
 	}
